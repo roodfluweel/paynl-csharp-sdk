@@ -47,5 +47,12 @@ namespace PAYNLSDK
             var response = _webClient.PerformRequest(request);
             return Newtonsoft.Json.JsonConvert.DeserializeObject<API.Alliance.AddInvoice.AddInvoiceResult>(response);
         }
+
+        /// <inheritdoc />
+        public API.Alliance.AddBankAccount.AddBankAccountResult AddBankAccount(API.Alliance.AddBankAccount.Request request)
+        {
+            var response = _webClient.PerformRequest(request);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<API.Alliance.AddBankAccount.AddBankAccountResult>(response);
+        }
     }
 }

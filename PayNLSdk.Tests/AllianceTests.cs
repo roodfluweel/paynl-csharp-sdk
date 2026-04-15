@@ -123,6 +123,33 @@ public class AllianceTests
         result.ToString().ShouldContain("INV-1");
     }
 
+    [Fact]
+    public void AddBankAccount_ShouldReturnIssuerUrl()
+    {
+        // Arrange
+        var rawResponse = """
+        {
+          "request": {
+            "result": true,
+            "errorId": null,
+            "errorMessage": null
+          },
+          "issuerUrl": "https://bank.example/redirect"
+        }
+        """;
+        var client = CreateClient(rawResponse);
+        var alliance = new Alliance(client);
+
+        // Act
+        var result = alliance.AddBankAccount(new PAYNLSDK.API.Alliance.AddBankAccount.Request(
+            merchantId: "M-4",
+            returnUrl: "https://merchant.example/return"));
+
+        // Assert
+        result.Request.Result.ShouldBeTrue();
+        result.IssuerUrl.ShouldBe("https://bank.example/redirect");
+    }
+
     private static IClient CreateClient(string rawResponse)
     {
         var client = Substitute.For<IClient>();

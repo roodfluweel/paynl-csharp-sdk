@@ -32,5 +32,12 @@
         /// <param name="request">The request.</param>
         /// <returns>API.Alliance.AddInvoice.AddInvoiceResult.</returns>
         API.Alliance.AddInvoice.AddInvoiceResult AddInvoice(API.Alliance.AddInvoice.Request request);
+
+        /// <summary>
+        /// Adds a bank account to an alliance merchant.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <returns>API.Alliance.AddBankAccount.AddBankAccountResult.</returns>
+        API.Alliance.AddBankAccount.AddBankAccountResult AddBankAccount(API.Alliance.AddBankAccount.Request request);
     }
 }

@@ -174,6 +174,7 @@ The following Alliance methods are available:
 - getMerchant
 - addMerchant
 - addInvoice
+- addBankAccount
 
 ## Statistics
 
